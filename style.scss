@@ -1,0 +1,727 @@
+// :::::::::: Imports ::::::::::
+
+@import url(https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap);
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+
+// :::::::::: Mixins ::::::::::
+
+@mixin cnt-cent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin cnt-btw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin cnt-spev {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+@mixin cnt-cent-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@mixin text-al-cent {
+    text-align: center;
+}
+@mixin transit {
+    transition: all 0.3s ease;
+}
+@mixin bg-img-flt {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@mixin h-full {
+    height: 100%;
+}
+@mixin bx-shd-20 {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+@mixin bx-shd-10 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+// :::::::::: Variables ::::::::::
+
+$black-1: #131418;
+$black-2: #17181c;
+$lgrey: #2b2e33;
+$dgrey: #1e1f23;
+$purple: #8c44e5;
+$dpurple: #6700e6;
+$blue: #0ac7e1;
+
+//  ======= +++++ CSS +++++ =======
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fafafa;
+}
+html, body {
+    overflow-x: hidden !important;
+}
+body {
+    min-height: 100vh;
+    width: 100%;
+    background-color: $black-1;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1px;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+// .... Header ....
+
+header {
+    @include cnt-spev();
+    height: 70px;
+    margin: 0 60px;
+    border-bottom: 1px solid $lgrey;
+    font-size: 14px;
+    .logo {
+        @include cnt-cent();
+        @include h-full();
+        height: 70px;
+        overflow: hidden;
+        margin-right: 150px;
+        img {
+            width: 70px;
+            height: 70px;
+        }
+        img:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            margin-left: -25px;
+        }
+    }
+    nav {
+        @include cnt-cent();
+        @include h-full();
+        ul {
+            @include cnt-cent();
+            @include h-full();
+            list-style-type: none;
+            li {
+                @include cnt-cent();
+                @include h-full();
+                @include transit();
+                width: 100px;
+                a {
+                    @include cnt-cent();
+                    @include h-full();
+                    width: 100%;
+                }
+            } 
+            li:nth-child(2) {
+                border-left: 1px solid $lgrey;
+            }
+            li:nth-child(3) {
+                border-left: 1px solid $lgrey;
+                border-right: 1px solid $lgrey;
+            }
+
+            // Hover anim
+
+            li:hover {
+                background-color: $purple;
+            }
+        }
+    }
+    .h-butt {
+        @include cnt-cent();
+        margin-left: 150px;
+        a {
+            @include text-al-cent();
+            @include transit();
+            background-color: $purple;
+            padding: 10px 25px;
+            border-radius: 20px;
+        }
+
+        // Hover Anim
+
+        a:hover {
+            background-color: $dpurple;
+        }
+    }
+}
+
+// .... Main ....
+
+main {
+    @include cnt-cent-col();
+    margin: 0 0 20px 0;
+    section {
+        @include cnt-cent-col();
+        @include bg-img-flt();
+        background-image: url(bg-d.png);
+        background-position: 80% 80%;
+        background-size: contain;
+        flex-wrap: wrap;
+        .hero {
+            @include cnt-cent();
+            flex-wrap: wrap;
+            margin: 0 0 20px 0;
+            padding: 40px 0 0 0;
+            background-position: top;
+            // background-size: contain;
+            .h-imgs {
+                @include cnt-cent();
+                position: relative;
+                justify-content: right;
+                align-items: baseline;
+                padding: 0 30px 0 0;
+                img:nth-child(1) {
+                    width: 300px;
+                }
+                img:nth-child(2) {
+                    width: 150px;
+                    margin: 0 20px;
+                    padding: 0 0 50px 0;
+                }
+                .caps {
+                    @include cnt-cent();
+                    top: 4%;
+                    right: 8%;
+                    position: absolute;
+                }
+            }
+            h1 {
+                font-size: 4em;
+                letter-spacing: 2px;
+                line-height: 1em;
+            }
+            p {
+                margin: 35px 0;
+                color: #a9aaaa;
+                max-width: 400px;
+            }
+            .form {
+                @include cnt-cent();
+                height: 40px;
+                width: 250px;
+                padding: 0 5px;
+                border: 2px solid #fff;
+                border-radius: 20px;
+                input {
+                    background-color: transparent;
+                    padding: 0 10px;
+                    border: none;
+                    height: 100%;
+                    width: 220px;
+                    font-size: 15px;
+                    outline: none;
+                }
+                button {
+                    @include cnt-cent();
+                    @include text-al-cent();
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: $purple;
+                }
+                button:hover {
+                    background-color: $dpurple;
+                }
+            }
+        }
+        .intro {
+            @include cnt-cent();
+            flex-wrap: wrap;
+            margin: 20px 0 45px 0;
+            padding: 0 45px;
+            h2 {
+                width: 350px;
+                font-size: 2.5em;
+            }
+            p {
+                color: #a9aaaa;
+                max-width: 300px;
+                margin: 15px 20px;
+            }
+            div {
+                max-width: 350px;
+                position: relative;
+                a {
+                    @include cnt-cent();
+                    @include text-al-cent();
+                    @include text-al-cent();
+                    background-color: $purple;
+                    border-radius: 50%;
+                    width: 65px;
+                    height: 65px;
+                    position: absolute;
+                    top: 3%;
+                    left: 3%;
+                    font-size: 1.8em;
+                }
+                a:hover {
+                    background-color: $dpurple;
+                }
+                img {
+                    width: 350px;
+                }
+            }
+        }
+    }
+
+    .steps {
+        @include cnt-cent-col();
+        background-color: $lgrey;
+        padding: 50px 0;
+        margin: 0 0 20px 0;
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .crd-cnt {
+            @include cnt-cent();
+            max-width: 1000px;
+            margin: 20px 0;
+            .cnt-1 {
+                @include cnt-cent-col();
+                padding: 10px;
+                div {
+                    @include cnt-cent-col();
+                    align-items: flex-start;
+                    margin: 10px 0;
+                    h3 {
+                        font-size: 1.5em;
+                        margin: 10px 0;
+                    }
+                    p {
+                        margin: 10px 0;
+                        color: #a9aaaa;
+                    }
+                    a {
+                        @include transit();
+                        color: $purple;
+                        font-size: 18px;
+                        text-shadow: 0 0 10px #8634eb60;
+                    }
+                    a:hover {
+                        transform: translateX(20px);
+                        color: $dpurple;
+                    }
+                }
+            }
+            .cnt-2 {
+                @extend .cnt-1
+            }
+            .img-crd {
+                width: 300px;
+                margin: 0 25px;
+                img {
+                    width: 300px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .projs {
+        @include cnt-cent-col();
+        width: 100%;
+        .cnt {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+            h1 {
+                font-size: 2.5em;
+                margin: 10px;
+            }
+            p {
+                color: #a9aaaa;
+                margin: 15px;
+            }
+        }
+        .w-projs {
+            @include cnt-cent();
+            width: 100%;
+            max-width: 1000px;
+            height: 450px;
+            background-color: transparent;
+            border-radius: 20px;
+            .cover {
+                position: relative;
+                @include cnt-cent();
+                width: 90%;
+                overflow: hidden;
+                .scroll-images {
+                    @include cnt-cent();
+                    justify-content: left;
+                    width: 100%;
+                    height: 400px;
+                    overflow: auto;
+                    padding: 20px 0 0 0;
+                    scroll-behavior: smooth;
+                    .child {
+                        @include cnt-cent-col();
+                        background-color: $lgrey;
+                        border-radius: 10px;
+                        min-width: 300px;
+                        margin: 0 10px;
+                        padding: 15px 10px;
+                        overflow: hidden;
+                        img {
+                            width: 250px;
+                        }
+                        p {
+                            color: #a9aaaa;
+                            margin: 10px 0 10px 15px;
+                        }
+                        a {
+                            @include cnt-cent();
+                            background-color: $purple;
+                            padding: 5px 20px;
+                            border-radius: 15px;
+                        }
+                    }
+                }
+            }
+            .cover::before {
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 0;
+                z-index: 99;
+                height: 100%;
+                width: 150px;
+                // background-image: linear-gradient(90deg, $dgrey, transparent);
+            }
+            .cover::after {
+                position: absolute;
+                content: "";
+                right: 0;
+                top: 0;
+                z-index: 99;
+                height: 100%;
+                width: 150px;
+                // background-image: linear-gradient(-90deg, $dgrey, transparent);
+            }
+            .prev {
+                @include cnt-cent();
+                height: 100%;
+                width: 7%;
+                button {
+                    @include cnt-cent();
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                    i {
+                        @extend button;
+                        font-size: 1.5em;
+                    }
+                }
+            }
+            .next {
+                @extend .prev;
+            }
+        }
+    }
+
+    .temp-search {
+        @include cnt-cent-col();
+        margin: 30px 0;
+        .cnt {
+            @include cnt-cent-col();
+            align-items: flex-start;
+            max-width: 1000px;
+            padding: 10px 15px;
+            h1 {
+                font-size: 3em;
+                margin: 20px 10px;
+            }
+            p {
+                margin: 15px 0;
+                color: #a9aaaa;
+            }
+        }
+        .srch-bar {
+            @include cnt-cent();
+            height: 40px;
+            width: 70%;
+            max-width: 850px;
+            padding: 0 5px;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            input {
+                background-color: transparent;
+                padding: 0 10px;
+                border: none;
+                height: 100%;
+                width: 95%;
+                font-size: 15px;
+                outline: none;
+            }
+            button {
+                @include cnt-cent();
+                @include text-al-cent();
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: $purple;
+            }
+            button:hover {
+                background-color: $dpurple;
+            }
+        }
+    }
+
+    .st-proj {
+        @include cnt-cent();
+        background-color: $black-2;
+        margin: 20px 0;
+        padding: 50px 10px;
+        position: relative;
+        .m-cont {
+            @include cnt-cent();
+            max-width: 1000px;
+            .st-img {
+                @include cnt-cent();
+                img {
+                    width: 300px
+                }
+            }
+            .st-cont {
+                @include cnt-cent-col();
+                align-items: flex-start;
+                margin-top: -50px;
+                h1 {
+                    margin: 0 0 20px 0;
+                }
+                p {
+                    color: #a9aaaa;
+                    margin: 10px 0 40px 0;
+                }
+                a {
+                   background-color: $purple; 
+                   padding: 15px 30px;
+                   border-radius: 20px;
+                   margin: 20px 10px 20px 10px;
+                }
+                a:nth-child(2) {
+                    background-color: transparent;
+                    border: 2px solid $purple;
+                }
+                a:hover {
+                    background-color: $dpurple;
+                    border-color: $dpurple;
+                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+                    transform: translate(5px, 2px);
+                }
+            }
+        }
+        .abs {
+            @include cnt-cent();
+            position: absolute;
+            padding: 10px 25px;
+            background-color: $blue;
+            border-radius: 50px;
+            bottom: 15%;
+            ul {
+                @include cnt-cent();
+                list-style-type: none;
+                li {
+                    @include cnt-cent-col();
+                    text-align: center;
+                    padding: 5px 30px;
+                    h3 {
+                        color: $black-1;
+                    }
+                    p {
+                        color: $black-1;
+                    }
+                }
+                li:nth-child(2) {
+                    border-left: 2px solid $black-1;
+                    border-right: 2px solid $black-1;
+                }
+            }
+        }
+    }
+
+    .contact {
+        @include cnt-cent-col();
+        max-width: 700px;
+        margin: 50px 0 -150px 0;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: $dgrey;
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2em;
+        }
+        p {
+            color: #a9aaaa;
+            text-align: center;
+            margin: 10px 0;
+        }
+        ul {
+            @include cnt-cent();
+            list-style-type: none;
+            flex-wrap: wrap;
+            li {
+                @include cnt-cent-col();
+                background-color: $lgrey;
+                margin: 10px 20px;
+                width: 250px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+                padding: 20px;
+                border-radius: 20px;
+                p {
+                    color: #fff;
+                }
+            }
+        }
+        .lnks {
+            @include cnt-cent();
+            flex-wrap: wrap;
+            a {
+                background-color: $purple; 
+                padding: 15px 30px;
+                border-radius: 20px;
+                margin: 20px 10px 20px 10px;
+            }
+            a:nth-child(2) {
+                background-color: transparent;
+                border: 2px solid $blue;
+            }
+            a:nth-child(2):hover {
+                background-color: $blue;
+            }
+            a:hover {
+                background-color: $dpurple;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+                transform: translate(5px, 2px);
+            }
+        }
+    }
+}
+
+// .... Footer ....
+
+footer {
+    @include cnt-cent-col();
+    padding: 100px 10px 20px 10px;
+    background-color: $black-2;
+    .cont {
+        @include cnt-cent();
+        flex-wrap: wrap;
+        max-width: 1000px;
+        .sb-lnks-cnt {
+            @include cnt-cent();
+            max-width: 1000px;
+            flex-wrap: wrap;
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                width: 200px;
+                padding: 10px;
+                margin: 15px;
+                h3 {
+                    font-size: 1.5em;
+                    margin: 15px 0;
+                }
+                ul {
+                    list-style-type: none;
+                    margin: 10px 0;
+                    li {
+                        margin: 15px 0;
+                        a {
+                            @include transit();
+                            color: #a9aaaa;
+                        }
+                        a:hover {
+                            color: #8c44e5;
+                            transform: translateX(5px);
+                        }
+                    }
+                }
+            }
+        }
+        .log-s {
+            @include cnt-cent-col();
+            width: 200px;
+            padding: 10px;
+            margin: 15px;
+            img {
+                width: 150px;
+                height: 150px;
+                margin: 10px 0;
+            }
+            ul {
+                @include cnt-cent();
+                list-style-type: none;
+                li {
+                    @include cnt-cent();
+                    margin: 10px;
+                    a {
+                        @include cnt-cent();
+                        font-size: 2em;
+                        i {
+                            color: #fff;
+                        }
+                    }
+                    a:hover i {
+                        color: #8c44e5;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyr {
+        @include cnt-btw();
+        padding: 20px 0;
+        border-top: 3px solid $lgrey;
+        animation: brd-top-anim 3s infinite;
+        max-width: 900px;
+        flex-wrap: wrap;
+        p {
+            color: #a9aaaa;
+            margin: 10px 0;
+        }
+        .lnks {
+            @include cnt-cent();
+            padding: 0 15px;
+            a {
+                color: $purple;
+                margin: 0 20px;
+            }
+            a:hover {
+                color: $dpurple;
+                transform: translateX(-5px);
+            }
+        }
+    }
+}
